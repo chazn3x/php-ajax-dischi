@@ -74,4 +74,12 @@ $database = [
 
 header('Content-Type: application/json');
 
+if (isset($_GET["genre"]) && $_GET["genre"] != 'null') {
+	$newDatabase = array_filter($database, function ($album) {
+		return $album["genre"] == $_GET["genre"];
+	});
+	echo json_encode($newDatabase);
+	die;
+}
+
 echo json_encode($database);

@@ -18,6 +18,16 @@
         <!-- main -->
         <main class="main">
             <section class="container">
+                <div class="search">
+                    <!-- ricerca per genere -->
+                    <div class="genres">
+                        <span>Select a genre: </span>
+                        <select v-model="genreToSearch" @change="searchGenre()">
+                            <option value="null" selected>All</option>
+                            <option v-for="genre in genres" :value="genre">{{genre}}</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="list">
                     <div v-for="album in albums" class="album-card">
                         <div class="img">
